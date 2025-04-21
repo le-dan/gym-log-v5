@@ -12,7 +12,6 @@ import {
 	useNavigate,
 } from "react-router";
 import { useStopwatch } from "react-timer-hook";
-import { CircleArrowLeft, CirclePause, CirclePlay } from "lucide-react";
 import { Modal } from "@mui/material";
 
 export default function WorkoutDisplay() {
@@ -107,7 +106,7 @@ export default function WorkoutDisplay() {
 				exercises={exercises}
 				stopwatch={stopwatch}
 			/>
-			<div className="w-full h-full px-5">
+			<div className="w-full h-full px-5 desktop:px-80">
 				<div
 					className={`${
 						!stopwatch.isRunning

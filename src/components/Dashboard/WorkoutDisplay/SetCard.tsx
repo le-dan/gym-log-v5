@@ -27,7 +27,7 @@ export default function SetCard({ exerciseName, exercises, setExercises }: SetCa
 
 	return (
 		<div
-			className={`w-[30%] bg-snow-white shadow-sm shadow-accent rounded-lg flex hover:scale-101 hover-css duration-100
+			className={` bg-snow-white shadow-sm shadow-accent rounded-lg flex hover:shadow-primary hover:shadow-md hover-css duration-200
             ${completed ? "opacity-30" : ""}
             `}
 			onClick={handleCardClick}

@@ -33,9 +33,9 @@ export default function ExerciseInformation({ chosenExercise, exercises, setExer
 				setDivs.push(<SetCard key={i} exerciseName={chosenExercise.name} exercises={exercises} setExercises={setExercises} />);
 			}
 			return (
-				<div className="flex flex-col gap-6 min-h-0 h-full" key={chosenExercise.name}>
-					<span className="text-2xl md:text-lg font-semibold min-h-0">
-						{exercise && exercise.setsCompleted}/{chosenExercise.sets} sets completed
+				<div className="flex flex-col gap-15 min-h-0 h-full" key={chosenExercise.name}>
+					<span className="desktop:text-3xl text-lg font-black min-h-0">
+						{exercise && exercise.setsCompleted}/{chosenExercise.sets} sets
 					</span>
 					<div className="flex flex-col gap-3 min-h-0 overflow-y-auto h-full grow-0 shrink">{setDivs}</div>
 				</div>
@@ -44,17 +44,23 @@ export default function ExerciseInformation({ chosenExercise, exercises, setExer
 	};
 
 	return chosenExercise ? (
-		<div className="h-full w-full p-10 flex flex-col gap-10 select-none min-h-0 shadow-lg shadow-primary/30 rounded-lg" key={chosenExercise.name}>
-			<span className="text-6xl md:text-4xl text-primary font-bold">{chosenExercise.name}</span>
-			<span className="flex text-lg flex-col">
-				<span className="font-semibold">MUSCLES WORKED</span>
-				{chosenExercise.musclesWorked.reduce((str, muscle) => (str += muscle.toUpperCase() + " "), "")}
+		<div
+			className="h-full w-full py-10 px-20 flex flex-col gap-10 select-none min-h-0 shadow-lg shadow-primary/30 rounded-lg"
+			key={chosenExercise.name}
+		>
+			<span className="desktop:text-6xl text-4xl text-primary font-bold w-full text-center">{chosenExercise.name}</span>
+			<span className="flex text-lg desktop:text-2xl flex-col w-full text-center">
+				<span className="font-semibold">MUSCLES WORKED</span>(
+				{chosenExercise.musclesWorked.reduce((str, muscle) => (str += muscle.toUpperCase() + " "), "").trimEnd()})
 			</span>
-			<div className="text-2xl md:text-lg flex flex-col select-text" hidden={chosenExercise.notes.length === 0}>
-				<span className="font-black">NOTES</span>
-				{chosenExercise.notes}
+			<div className="h-full w-full p-5 flex gap-20 justify-between">
+				<div className="text-2xl md:text-lg min-h-0 grow">{renderSets()}</div>
+				{/* <div className="text-2xl md:text-lg flex flex-col select-text" hidden={chosenExercise.notes.length === 0}> */}
+				<div className="desktop:text-3xl text-lg flex flex-col select-text grow">
+					<span className="font-black">NOTES</span>
+					{chosenExercise.notes}
+				</div>
 			</div>
-			<div className="text-2xl md:text-lg min-h-0">{renderSets()}</div>
 		</div>
 	) : (
 		<></>
