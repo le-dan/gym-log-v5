@@ -7,6 +7,7 @@
 	--color-accent: #7886c7;
 	--color-text: #352f36;
 	--color-input-box: #ededf5;
+	--breakpoint-desktop: 106.25rem;
 }
 
 @layer components {
@@ -75,6 +76,19 @@ body,
 }
 
 .rainbow-box {
-	background: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+	background: linear-gradient(
+		to bottom right,
+		#b827fc 0%,
+		#2c90fc 25%,
+		#b8fd33 50%,
+		#fec837 75%,
+		#fd1892 100%
+	);
 	border-image-slice: 1;
+}
+
+.MuiOutlinedInput-root {
+	@media (min-width: 106.25rem) {
+		height: 48px !important;
+	}
 }

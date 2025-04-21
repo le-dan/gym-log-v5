@@ -19,7 +19,7 @@ export default function Main() {
 			<div className="App bg-snow-white-dark flex">
 				<Sidebar />
 				{/* Main Board */}
-				<div className="h-full w-full px-30 py-15 opacity-100 flex flex-col justify-center items-center gap-4 text-black">
+				<div className="h-full w-full py-15 opacity-100 flex flex-col justify-center items-center gap-4 text-black">
 					<Outlet />
 				</div>
 			</div>

@@ -23,7 +23,11 @@ interface ExerciseAccordionProps {
 	setExercises: React.Dispatch<React.SetStateAction<Exercise[]>>;
 }
 
-export default function ExerciseAccordion({ exercise, exercisesList, setExercises }: ExerciseAccordionProps) {
+export default function ExerciseAccordion({
+	exercise,
+	exercisesList,
+	setExercises,
+}: ExerciseAccordionProps) {
 	const styles = {
 		accordion: {
 			".MuiAccordion-heading": {},
@@ -44,7 +48,9 @@ export default function ExerciseAccordion({ exercise, exercisesList, setExercise
 
 		// Save edits
 		if (editMode) {
-			const newExerciseList = exercisesList.map((e) => (e.name == exercise.name ? exerciseForm : e));
+			const newExerciseList = exercisesList.map((e) =>
+				e.name == exercise.name ? exerciseForm : e
+			);
 			setExercises(newExerciseList);
 		}
 
@@ -52,11 +58,17 @@ export default function ExerciseAccordion({ exercise, exercisesList, setExercise
 	}
 
 	function handleDelete() {
-		const newExerciseList = exercisesList.filter((e) => e.name !== exercise.name);
+		const newExerciseList = exercisesList.filter(
+			(e) => e.name !== exercise.name
+		);
 		setExercises(newExerciseList);
 	}
 
-	function handleInputChange(e: SelectChangeEvent<any> | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+	function handleInputChange(
+		e:
+			| SelectChangeEvent<any>
+			| React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) {
 		const { name, value } = e.target;
 		setExerciseForm((prev) => ({
 			...prev,
@@ -64,25 +76,41 @@ export default function ExerciseAccordion({ exercise, exercisesList, setExercise
 		}));
 	}
 	return (
-		<Accordion key={exercise.name} sx={styles.accordion} className="px-5" expanded={openAccordion}>
+		<Accordion
+			key={exercise.name}
+			sx={styles.accordion}
+			className="pr-5"
+			expanded={openAccordion}
+		>
 			<Box sx={{ display: "flex" }}>
 				<AccordionSummary
 					onClick={() => setOpenAccordion(!openAccordion)}
 					expandIcon={<ChevronDown />}
-					className="font-semibold text-primary text-2xl"
+					className="font-semibold text-primary text-md desktop:text-2xl"
 				>
-					{exercise.name}
+					<div className="h-full flex items-center gap-3">
+					<div className="bg-primary text-snow-white py-[1px] px-[8px] rounded-xl text-sm">
+						{exercise.sets}x{exercise.reps}
+					</div>
+					<span className="h-full">{exercise.name}</span>
+					</div>
 				</AccordionSummary>
 				<Box sx={{ display: "flex", alignItems: "center" }}>
 					<AnimatePresence>
-						<IconButton className="h-fit" onClick={() => handleEdit()}>
+						<IconButton
+							className="h-fit"
+							onClick={() => handleEdit()}
+						>
 							{editMode && (
 								<motion.div
 									key="check"
 									initial={{ opacity: 0, scale: 0 }}
 									exit={{ opacity: 0, scale: 0 }}
 									animate={{ opacity: 1, scale: 1 }}
-									transition={{ duration: 0.5, type: "spring" }}
+									transition={{
+										duration: 0.5,
+										type: "spring",
+									}}
 								>
 									<Check className="text-primary" />
 								</motion.div>
@@ -93,20 +121,32 @@ export default function ExerciseAccordion({ exercise, exercisesList, setExercise
 									initial={{ opacity: 0, scale: 0 }}
 									exit={{ opacity: 0, scale: 0 }}
 									animate={{ opacity: 1, scale: 1 }}
-									transition={{ duration: 0.5, type: "spring" }}
+									transition={{
+										duration: 0.5,
+										type: "spring",
+									}}
 								>
 									<Pencil className="text-primary" />
 								</motion.div>
 							)}
 						</IconButton>
 					</AnimatePresence>
-					<IconButton className="h-fit" onClick={() => handleDelete()}>
+					<IconButton
+						className="h-fit"
+						onClick={() => handleDelete()}
+					>
 						<Trash className="text-red-400" />
 					</IconButton>
 				</Box>
 			</Box>
-			<AccordionDetails sx={{ padding: 3 }} className="text-text flex flex-col gap-8">
-				<Typography component={"div"} className="flex text-xl gap-3 text-primary justify-center items-center">
+			<AccordionDetails
+				sx={{ padding: 3 }}
+				className="text-text flex flex-col gap-8"
+			>
+				<Typography
+					component={"div"}
+					className="flex text-xl gap-3 text-primary justify-center items-center"
+				>
 					<TextField
 						fullWidth
 						color="primary"
@@ -119,7 +159,10 @@ export default function ExerciseAccordion({ exercise, exercisesList, setExercise
 						disabled={!editMode}
 					/>
 				</Typography>
-				<Typography component={"div"} className="flex text-xl gap-3 text-primary justify-center items-center">
+				<Typography
+					component={"div"}
+					className="flex text-xl gap-3 text-primary justify-center items-center"
+				>
 					<TextField
 						color="primary"
 						size="small"
@@ -144,7 +187,10 @@ export default function ExerciseAccordion({ exercise, exercisesList, setExercise
 				</Typography>
 				<Typography component={"div"} className="flex flex-col">
 					<FormControl>
-						<InputLabel id="muscles-worked-label" disabled={!editMode}>
+						<InputLabel
+							id="muscles-worked-label"
+							disabled={!editMode}
+						>
 							<em>Select muscle(s) worked</em>
 						</InputLabel>
 						<Select
