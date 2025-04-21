@@ -24,5 +24,12 @@ export default function ExerciseList({ workout, exercises, chosenExercise, setCh
 		});
 		return exerciseElements;
 	};
-	return <div className="h-full w-[30%] p-5 flex flex-col gap-4 shrink-0 inset-shadow-primary/50 inset-shadow-sm rounded-lg">{renderExercises()}</div>;
+	return (
+		<div className="w-[30%] h-full">
+			<div className="text-center text-2xl font-semibold text-primary mb-5">Exercises Remaining:</div>
+			<div className="h-full p-5 flex flex-col gap-4 shrink-0 inset-shadow-primary/50 inset-shadow-sm rounded-lg">
+			{renderExercises()}
+			</div>
+		</div>
+	);
 }
