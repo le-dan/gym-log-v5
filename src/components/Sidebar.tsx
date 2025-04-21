@@ -21,7 +21,7 @@ export default function Sidebar() {
 		"flex items-center gap-3 rounded-md p-2 hover-css hover:bg-accent text-xl font-light";
 	return (
 		<div className="shrink-0 w-50 h-full bg-primary pt-5 pb-5 px-4 flex justify-center flex-col gap-5 text-xl font-bold">
-			<span className="w-full text-center mb-3 opacity-30 text-accent font-black">
+			<span className="w-full text-center mb-3 text-white font-black">
 				Jym Log
 			</span>
 			<motion.div

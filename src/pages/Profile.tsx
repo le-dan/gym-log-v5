@@ -62,12 +62,19 @@ export default function Profile() {
 		<div className="h-full p-5 pb-3 text-primary gap-10 flex flex-col">
 			<div className="flex items-center gap-15">
 				<div className="bg-snow-white-dark shadow-xl rounded-full h-35 w-35 flex items-center justify-center text-6xl select-none">
-					{user?.fullName
-						.split(" ")
-						.map((n) => n[0])
-						.join("")}
+					{user?.fullName.trim()
+						? user.fullName
+								.split(" ")
+								.map((n) => n[0])
+								.join("")
+						: "JD"
+						// <img
+						// src="/src/images/Default_pfp.jpg"
+						// alt="Default Profile"
+						// className="h-full w-full object-cover rounded-full"/>
+						}
 				</div>
-				<span className="text-6xl font-semibold">{user?.fullName}</span>
+				<span className="text-6xl font-semibold">{user?.fullName ? user?.fullName : "John Doe"}</span>
 			</div>
 			<div
 				className={`bg-snow-white h-full w-full shadow-xl rounded-2xl p-12 flex flex-wrap gap-10 content-start duration-300 ease-in-out ${
