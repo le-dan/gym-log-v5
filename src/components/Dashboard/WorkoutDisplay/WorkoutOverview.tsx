@@ -44,7 +44,7 @@ export default function WorkoutOverview({ currentDay, workout, exercises, stopwa
 					</div>
 				</div>
 				<div className="flex gap-3 rounded-lg shadow-md bg-snow-white  w-1/4 desktop:w-full p-2 items-center justify-center grow">
-					<span className="text-primary text-2xl desktop:text-5xl font-black rounded-lg shadow-md bg-snow-white  py-1 desktop:py-2  w-1/2 desktop:w-full grow-0 shrink-0 text-center">
+					<span className="text-primary text-2xl desktop:text-5xl font-black rounded-lg bg-snow-white  py-1 desktop:py-2  w-1/2 desktop:w-full grow-0 shrink-0 text-center">
 						{String(stopwatch.minutes).padStart(2, "0")}:{String(stopwatch.seconds).padStart(2, "0")}
 					</span>
 				</div>

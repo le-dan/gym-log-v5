@@ -34,10 +34,10 @@ export default function ExerciseInformation({ chosenExercise, exercises, setExer
 			}
 			return (
 				<div className="flex flex-col gap-15 min-h-0 h-full" key={chosenExercise.name}>
-					<span className="desktop:text-3xl text-lg font-black min-h-0">
-						{exercise && exercise.setsCompleted}/{chosenExercise.sets} sets
+					<span className="desktop:text-3xl text-2xl font-black min-h-0">
+						{exercise && exercise.setsCompleted}/{chosenExercise.sets} Sets:
 					</span>
-					<div className="flex flex-col gap-3 min-h-0 overflow-y-auto h-full grow-0 shrink">{setDivs}</div>
+					<div className="flex flex-col gap-3 p-2 min-h-0 overflow-y-auto h-full grow-0 shrink">{setDivs}</div>
 				</div>
 			);
 		}
@@ -45,19 +45,21 @@ export default function ExerciseInformation({ chosenExercise, exercises, setExer
 
 	return chosenExercise ? (
 		<div
-			className="h-full w-full py-10 px-20 flex flex-col gap-10 select-none min-h-0 shadow-lg shadow-primary/30 rounded-lg"
+			className="h-full w-full py-10 px-20 flex flex-col gap-10 select-none min-h-0 shadow-lg shadow-primary/30 rounded-lg bg-snow-white-dark"
 			key={chosenExercise.name}
 		>
-			<span className="desktop:text-6xl text-4xl text-primary font-bold w-full text-center">{chosenExercise.name}</span>
-			<span className="flex text-lg desktop:text-2xl flex-col w-full text-center">
-				<span className="font-semibold">MUSCLES WORKED</span>(
-				{chosenExercise.musclesWorked.reduce((str, muscle) => (str += muscle.toUpperCase() + " "), "").trimEnd()})
+			<span className="desktop:text-6xl text-4xl text-primary font-bold w-full text-center p-4 rounded-lg bg-snow-white">
+				{"Exercise: " + chosenExercise.name}
+				<span className="flex text-lg desktop:text-2xl flex-col w-full text-center bg-snow-white">
+					<span className="font-semibold">Muscles Worked:</span>(
+					{chosenExercise.musclesWorked.reduce((str, muscle) => (str += muscle.toUpperCase() + " "), "").trimEnd()})
+				</span>
 			</span>
 			<div className="h-full w-full p-5 flex gap-20 justify-between">
-				<div className="text-2xl md:text-lg min-h-0 grow">{renderSets()}</div>
+				<div className="text-2xl md:text-lg min-h-0 grow rounded-lg p-3 bg-snow-white">{renderSets()}</div>
 				{/* <div className="text-2xl md:text-lg flex flex-col select-text" hidden={chosenExercise.notes.length === 0}> */}
-				<div className="desktop:text-3xl text-lg flex flex-col select-text grow">
-					<span className="font-black">NOTES</span>
+				<div className="desktop:text-3xl text-2xl flex flex-col select-text grow rounded-lg p-3 bg-snow-white">
+					<span className="font-black">Notes:</span>
 					{chosenExercise.notes}
 				</div>
 			</div>
