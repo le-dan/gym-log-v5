@@ -48,7 +48,7 @@ export default function ExerciseInformation({ chosenExercise, exercises, setExer
 			className="h-full w-full py-10 px-20 flex flex-col gap-10 select-none min-h-0 shadow-lg shadow-primary/30 rounded-lg bg-snow-white-dark"
 			key={chosenExercise.name}
 		>
-			<span className="desktop:text-6xl text-4xl text-primary font-bold w-full text-center p-4 rounded-lg bg-snow-white">
+			<span className="desktop:text-5xl text-4xl text-primary font-bold w-full text-center p-4 rounded-lg bg-snow-white">
 				{"Exercise: " + chosenExercise.name}
 				<span className="flex text-lg desktop:text-2xl flex-col w-full text-center bg-snow-white">
 					<span className="font-semibold">Muscles Worked:</span>(
