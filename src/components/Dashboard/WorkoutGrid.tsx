@@ -56,7 +56,7 @@ export default function WorkoutGrid() {
 			<NavBar />
 			<div className="h-full w-full flex items-center justify-center">
 				<div className="h-[80%] w-[80%] bg-snow-white p-10 shadow-lg rounded-lg flex flex-col gap-10 text-text min-h-0">
-					<span className="text-4xl font-bold text-primary">choose a workout for today,</span>
+					<span className="text-4xl font-bold text-primary">Choose Today's Workout:</span>
 					{workouts.length > 0 ? (
 						<div
 							className="min-h-0 h-full w-full grid grid-rows-[repeat(auto-fill,_minmax(140px,1fr))] grid-cols-[repeat(auto-fill,_minmax(330px,1fr))] gap-8 overflow-y-auto p-4"
@@ -66,12 +66,12 @@ export default function WorkoutGrid() {
 						</div>
 					) : (
 						<div className="h-full w-full flex justify-center items-center flex-col text-primary/60  text-4xl gap-12">
-							There are no custom workouts yet! Bummer! :(
+							No Workouts Found! Please Create One!
 							<NavLink
 								to="/workout/create"
 								className="text-xl py-3 px-5 w-fit bg-primary text-snow-white hover-css rounded-xl hover:bg-accent hover:cursor-pointer hover:scale-105 ease-in-out"
 							>
-								create workout
+								Create
 							</NavLink>
 						</div>
 					)}

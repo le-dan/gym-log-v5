@@ -65,12 +65,12 @@ export default function Workout() {
 		</div>
 	) : (
 		<div className="h-full w-full flex flex-col text-primary/60 items-center justify-center text-4xl gap-12">
-			There are no custom workouts yet! Bummer! :(
+			No Workouts Found! Please Create One!
 			<NavLink
 				to="create"
 				className="text-xl py-3 px-5 bg-primary text-snow-white hover-css rounded-xl hover:bg-accent hover:cursor-pointer hover:scale-105 ease-in-out"
 			>
-				create workout
+				Create
 			</NavLink>
 		</div>
 	);
